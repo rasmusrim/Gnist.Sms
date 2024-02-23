@@ -24,7 +24,7 @@ public class SmsGatewayCommunicator
         using var handler = new HttpClientHandler();
         using var client = new HttpClient(handler);
         using var requestMessage = new HttpRequestMessage(HttpMethod.Post, _config.Wsdl);
-        requestMessage.Content = new StringContent(payload.Body, Encoding.UTF8, "application/xml");
+        requestMessage.Content = new StringContent(payload.Body, Encoding.UTF8, "text/xml");
 
         foreach (var header in payload.Headers)
         {
