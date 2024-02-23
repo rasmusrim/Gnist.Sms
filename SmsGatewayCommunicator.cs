@@ -48,7 +48,7 @@ public class SmsGatewayCommunicator
 
 
         if (
-            !responseString.Contains(@"<StatusCode>1</StatusCode>")
+            !responseString.Contains(@"<StatusCode xmlns="">1</StatusCode>")
         )
         {
             throw new HttpRequestException("Response does not contain succesful status code");
