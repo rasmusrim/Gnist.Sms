@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NuGetAuthenticate@1
+- script: dotnet nuget enable source Nuget-Flyttavle2
+  displayName: 'Enable Flyttavle Nuget package'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+  displayName: 'dotnet restore'
+- script: chmod +x ./build-and-pack.sh
+  displayName: 'Give script execution permission'
+- script: ./build-and-pack.sh Release
+  displayName: 'Build and pack'
+ 
+- script: nuget push -Source "NuGet-Flyttavle2" -ApiKey az "$(Build.ArtifactStagingDirectory)/*.nupkg"
+  displayName: 'nuget push packages'
+
+
