@@ -9,3 +9,5 @@ C
 SmsGatewayConfig.cs,d\5\d54ca6a7169f4ab10b130523fb9537e6389bf46c
 I
 SmsGatewayCommunicator.cs,c\7\c710df91c6a1c31f28ced2ea8f73f14a12037847
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d

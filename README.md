@@ -1,0 +1,1 @@
+A library to send SMS via the Telenor Gateway described here: https://gnist.sykehuspartner.no/apis/c4220ae1-a0e4-431d-bb9f-8f67f376b9bd
