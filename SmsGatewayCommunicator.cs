@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Gnist.SendSms;
+namespace Gnist.Sms;
 
 public class SmsGatewayCommunicator
 {

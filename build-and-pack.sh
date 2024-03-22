@@ -21,7 +21,7 @@ echo "PackageId: $package_id"
 if [ -z "$TF_BUILD" ]; then
   dotnet restore 
   dotnet build -c Debug
-  dotnet pack -c Debug -p:Version="$version" -o ~/source/repos/nuget
+  dotnet pack -c Debug -p:Version="$version" -o ~/nuget
 else 
   dotnet restore
   dotnet build -c Release
