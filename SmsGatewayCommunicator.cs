@@ -38,7 +38,7 @@ public class SmsGatewayCommunicator
 
         if (!response.IsSuccessStatusCode)
         {
-            throw new HttpRequestException("Response code implies not successful: " + response.StatusCode);
+            throw new HttpRequestException("Response code implies not successful: " + response.StatusCode + "\nRequest: " + requestMessage + "\nResponse: " + responseString);
         }
 
         if (responseString == null)
