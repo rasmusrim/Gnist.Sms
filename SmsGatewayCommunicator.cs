@@ -58,6 +58,8 @@ public class SmsGatewayCommunicator
 
     private Payload CreatePayload(string from, int to, string message)
     {
+        var escapedMessage = System.Security.SecurityElement.Escape(message);
+        
         var body = $@"
 <soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:sp=""SP.Shared.Schemas.SmsSend"">
    <soapenv:Header/>
@@ -75,7 +77,7 @@ public class SmsGatewayCommunicator
          <!--Optional:-->
          <RecipientNumber>{to}</RecipientNumber>
          <!--Optional:-->
-         <MessageText>{message}</MessageText>
+         <MessageText>{escapedMessage}</MessageText>
          <HERId>{_config.HerId}</HERId>
       </sp:SmsRequest>
    </soapenv:Body>
