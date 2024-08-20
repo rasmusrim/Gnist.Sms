@@ -12,14 +12,20 @@ public class SmsGatewayCommunicator
 
     }
 
-    public async Task SendSingleSms(string from, int to, string message)
+    public async Task SendSingleSmsAsync(string from, int to, string message)
     {
 
         var payload = CreatePayload(from, to, message);
-        await Send(payload);
+        await SendAsync(payload);
     }
 
-    private async Task Send(Payload payload)
+    public void SendSingleSms(string from, int to, string message)
+    {
+        var response = SendSingleSmsAsync(from, to, message);
+        response.Wait();
+    }
+
+    private async Task SendAsync(Payload payload)
     {
         using var handler = new HttpClientHandler();
         using var client = new HttpClient(handler);
